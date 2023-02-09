@@ -17,6 +17,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+          registry-url: 'https://registry.npmjs.org'
 
       - uses: actions/cache@v3
         id: cache-deno
@@ -49,8 +50,6 @@ jobs:
         run: echo "It's already done, when release was published"
 
       - name: NPM Publish
-        run: |
-            cd npm
-            npm publish
+        run: cd npm && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

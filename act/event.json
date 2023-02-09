@@ -6,7 +6,7 @@
         "base": {
             "ref": "sample-base-ref"
         },
-        "ref": "refs/tags/v2.1.41-beta",
-        "tag_name": "v2.1.41-beta"
+        "ref": "refs/tags/v0.1.2",
+        "tag_name": "v0.1.2"
     }
 }
