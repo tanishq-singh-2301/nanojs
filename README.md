@@ -4,7 +4,7 @@
 
 <img align="right" src="./assets/nanojs-round.png" height="150px">
 
-_**NanoJs**_ is a _simple_, _modern_ and _secure_ library for **JavaScript** and **TypeScript**.
+_**NanoJs**_ is a _simple_, _modern_ and _secure_ library for **nanocurrency**.
 
 ### Features
 
