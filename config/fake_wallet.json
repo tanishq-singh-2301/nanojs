@@ -1,0 +1,23 @@
+{
+    "seed": "a10bdbe999665fefef8089c6e6fc23adab70f704425d630c6d6a36a60648925a",
+    "accounts": [
+        {
+            "index": 0,
+            "private_key": "050D59BC4A2B22E65CD906F168318352FA9149E0FAE31D9DF1184B6657989236",
+            "public_key": "9197515B71A1C783A44BD176CA0EBA7E54CBCE90F1C51C9C3F61CE9FBDC166B7",
+            "address": "nano_36eqc7fq5ag9igk6qndpsa9dnzknsh9b3wg75kg5yrggmyyw4soqqozpj63e"
+        },
+        {
+            "index": 1,
+            "private_key": "40C146373BF03EF2D62E067D38A5E6BDE2B511B5C90A99C62B6F7C3D321DDEAC",
+            "public_key": "15585860FF6EDD1A5A7570BBF769934202B9E547E78FADCEAC4B66E16E01202E",
+            "address": "nano_17crd3ihyupx5bf9cw7uyxns8ii4q9knhswhoq9crku8w7q14a3gcftgbdp9"
+        },
+        {
+            "index": 2,
+            "private_key": "FF851DC0A6205B93984AE374C6662A076909400F91125CFFC06852D06272B1B7",
+            "public_key": "F15B16CAEA79AC090CA6E4987535C6E05E9228BC662FEDCB6315F3432AF227B0",
+            "address": "nano_3wcu4u7gnyfe368cfs6rgntwfr4ykandrsjhxq7p87hmaeoh6bxijzzm8caa"
+        }
+    ]
+}
