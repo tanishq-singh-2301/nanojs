@@ -31,3 +31,8 @@ export * from "./src/work/generate.ts";
 export * from "./config/raw_xno.ts";
 export * from "./config/representatives.ts";
 export * from "./config/rpc_node_url.ts";
+
+/**
+ * Wallet
+ */
+export * from "./src/wallet/create.ts";
