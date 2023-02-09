@@ -19,6 +19,10 @@ jobs:
         with:
           deno-version: v1.x
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - uses: actions/cache@v3
         id: cache-deno
         with:
@@ -29,10 +33,12 @@ jobs:
 
       - name: Fetch deps
         if: ${{ steps.cache-deno.outputs.cache-hit != 'true' }}
-        run: deno cache -r deps.ts
+        run: |
+            deno cache -r deps.ts
+            deno cache -r scripts/build_npm.ts
 
       - name: Test
         run: deno test -A
 
       - name: DNT
-        run: deno run -A script/build_npm.ts
+        run: deno run -A scripts/build_npm.ts
