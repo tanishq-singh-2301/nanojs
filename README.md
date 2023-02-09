@@ -8,7 +8,8 @@ _**NanoJs**_ is a _simple_, _modern_ and _secure_ library for **nanocurrency**.
 
 ### Features
 
-- Secure by default. No sharing of private_key, all the blocks are created and signed locally. then get published to node.
+- Secure by default. No sharing of private_key, all the blocks are created and
+  signed locally. then get published to node.
 - Get account information, balance, pending blocks, etc.
 - Send, and Receive nano.
 - Create wallet, account (with and without seed).
@@ -28,16 +29,17 @@ npm install @tanishq-singh/nanojs
 ```
 
 ```ts
-import nanojs from '@tanishq-singh/nanojs';
+import nanojs from "@tanishq-singh/nanojs";
 // or
-const nanojs = require('@tanishq-singh/nanojs');
+const nanojs = require("@tanishq-singh/nanojs");
 ```
 
 [Deno](https://deno.land)
 
 ```ts
-import nanojs from 'https://deno.land/x/nanojs/mod.ts';
+import nanojs from "https://deno.land/x/nanojs/mod.ts";
 ```
+
 <br />
 
 # _**Getting Started**_
@@ -50,7 +52,7 @@ import nanojs from 'https://deno.land/x/nanojs/mod.ts';
     const nano_address = "nano_1cp73fb93gkunh1yujbz3ecap46cmfsm5ozx3iqho7mu9jsx7p36hp5g39bn";
     const info = await nanojs.get_account_info(nano_address);
 
-    if ('error' in info) console.log(info.error); // error reason
+    if ("error" in info) console.log(info.error); // error reason
     else console.log(info); // account info
     ```
 
@@ -67,6 +69,7 @@ import nanojs from 'https://deno.land/x/nanojs/mod.ts';
         "confirmation_height_frontier": "3611793EF73D629181ECE0F99BADDF1A02E85523D2CC8EE2C6637481080857D2",
     }
     ```
+
 <br />
 
 2. ### _Account Balance_
@@ -74,7 +77,7 @@ import nanojs from 'https://deno.land/x/nanojs/mod.ts';
     const nano_address = "nano_1cp73fb93gkunh1yujbz3ecap46cmfsm5ozx3iqho7mu9jsx7p36hp5g39bn";
     const account_balance = await nanojs.get_account_balance(nano_address);
 
-    console.log(account_balance); 
+    console.log(account_balance);
     ```
 
     ```bash
@@ -92,7 +95,7 @@ import nanojs from 'https://deno.land/x/nanojs/mod.ts';
     const nano_address = "nano_1111111111111111111111111111111111111111111111111117353trpda";
     const pending_blocks = await nanojs.get_pending_blocks(nano_address);
 
-    console.log(pending_blocks); 
+    console.log(pending_blocks);
     ```
 
     ```bash
@@ -106,8 +109,31 @@ import nanojs from 'https://deno.land/x/nanojs/mod.ts';
         ],
     }
     ```
+
 <br />
-  
+
+4. ### _Receive Pending Blocks_
+    ```ts
+    const account_private_key = "40C146373BF03EF2D62E067D38A5E6BDE2B511B5C90A99C62B6F7C3D321DDEAC";
+    const pending_block_hash = "20D5D6EA5CA355B11A0E3C11A74FBB4E91D126F4B3FD97232945D451A621E6F7";
+    const { error, hash } = receive_pending_block(
+        account_private_key,
+        pending_block_hash,
+        RPC_Node_URL.NANOS,
+    );
+
+    console.log({ error, hash });
+    ```
+
+    ```bash
+    {
+        error: undefined,
+        hash: "142A538F36833D1CC78B94E11C766F75818F8B940771335C6C1B8AB880C5BB1D"
+    }
+    ```
+
+<br />
+
 </details>
 
 <details>
@@ -115,7 +141,8 @@ import nanojs from 'https://deno.land/x/nanojs/mod.ts';
 
 1. ### _Block Information_
     ```ts
-    const hash = "87434F8041869A01C8F6F263B87972D7BA443A72E0A97D7A3FD0CCC2358FD6F9";
+    const hash =
+        "87434F8041869A01C8F6F263B87972D7BA443A72E0A97D7A3FD0CCC2358FD6F9";
     const info = await nanojs.get_block_info(hash);
 
     console.log(info);
@@ -149,15 +176,15 @@ import nanojs from 'https://deno.land/x/nanojs/mod.ts';
 
 2. ### _Publish Block_
     ```ts
-    import nanocurrency from 'nanocurrency';
+    import nanocurrency from "nanocurrency";
 
-    const block_data = { }; // block data
+    const block_data = {}; // block data
     const account_private_key = "my-account-private-key";
 
-    const { block } = nanocurrency.createBlock(account_private_key, block_data)
+    const { block } = nanocurrency.createBlock(account_private_key, block_data);
     const publish_block = await nanojs.publish_block(block);
 
-    console.log(publish_block); 
+    console.log(publish_block);
     ```
 
     ```bash
@@ -165,8 +192,9 @@ import nanojs from 'https://deno.land/x/nanojs/mod.ts';
         "hash": "87434F8041869A01C8F6F263B87972D7BA443A72E0A97D7A3FD0CCC2358FD6F9"
     }
     ```
+
 <br />
-  
+
 </details>
 
 <details>
@@ -174,10 +202,11 @@ import nanojs from 'https://deno.land/x/nanojs/mod.ts';
 
 1. ### _Work Generate_
     ```ts
-    const hash = "87434F8041869A01C8F6F263B87972D7BA443A72E0A97D7A3FD0CCC2358FD6F9"
+    const hash =
+        "87434F8041869A01C8F6F263B87972D7BA443A72E0A97D7A3FD0CCC2358FD6F9";
     const work = await nanojs.work_generate(hash);
 
-    console.log(work); 
+    console.log(work);
     ```
 
     ```bash
@@ -189,8 +218,9 @@ import nanojs from 'https://deno.land/x/nanojs/mod.ts';
         "error": undefined
     }
     ```
+
 <br />
-  
+
 </details>
 
 <details>
@@ -201,19 +231,19 @@ import nanojs from 'https://deno.land/x/nanojs/mod.ts';
     const xno = "1.21";
     const raw = nanojs.xno_to_raw(xno);
 
-    console.log(raw); 
+    console.log(raw);
     ```
 
     ```bash
     "1210000000000000000000000000000"
     ```
 
-2. ### _RAW to XNO_
+    2. ### _RAW to XNO_
     ```ts
     const raw = "1.21";
     const xno = nanojs.raw_to_xno(raw);
 
-    console.log(xno); 
+    console.log(xno);
     ```
 
     ```bash
@@ -225,4 +255,5 @@ import nanojs from 'https://deno.land/x/nanojs/mod.ts';
 <br />
 
 # _**license**_
+
 MIT

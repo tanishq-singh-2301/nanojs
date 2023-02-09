@@ -24,7 +24,7 @@ await build({
         bugs: {
             url: "https://github.com/tanishq-singh-2301/nanojs/issues",
         },
-    }
+    },
 });
 
 // post build steps
