@@ -29,14 +29,14 @@ export type Send_XNO = Publish_Block;
  * const receiver_address = "nano_1trd73o8z76wnnwmuq6y5pe6r396p7m7qf5zufrox9uk3io8foyd8mowgxu3";
  * const amount_xno = "10.31";
  *
- * const { error, hash } = await send_xno(sender_private_key, receiver_address, amount_xno, RPC_Node_URL.NANOS);
+ * const { error, hash } = await send_xno(sender_private_key, receiver_address, amount_xno, RPC_Node_URL.RAINSTROM);
  * ```
  */
 export const send_xno = async (
     sender_private_key: string,
     receiver_address: string,
     amount_xno: string,
-    rpc_node_url: RPC_Node_URL = RPC_Node_URL.NANOS,
+    rpc_node_url: RPC_Node_URL = RPC_Node_URL.RAINSTROM,
 ): Promise<Send_XNO> => {
     const { address, private_key } = get_account_keys(sender_private_key);
     const sender_account_info = await get_account_info(address, rpc_node_url);

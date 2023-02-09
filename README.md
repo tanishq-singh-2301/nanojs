@@ -132,6 +132,23 @@ import nanojs from "https://deno.land/x/nanojs/mod.ts";
     }
     ```
 
+5. ### _Send XNO_
+    ```ts
+    const sender_private_key = "40C146373BF03EF2D62E067D38A5E6BDE2B511B5C90A99C62B6F7C3D321DDEAC";
+    const receiver_address = "nano_1trd73o8z76wnnwmuq6y5pe6r396p7m7qf5zufrox9uk3io8foyd8mowgxu3";
+    const amount_xno = "10.31";
+
+    const { error, hash } = await send_xno(sender_private_key, receiver_address, amount_xno, RPC_Node_URL.RAINSTROM);
+
+    console.log({ error, hash });
+    ```
+
+    ```bash
+    {
+        hash: "142A538F36833D1CC78B94E11C766F75818F8B940771335C6C1B8AB880C5BB1D"
+    }
+    ```
+
 <br />
 
 </details>
