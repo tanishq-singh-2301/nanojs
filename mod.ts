@@ -6,6 +6,7 @@ export * from "./src/account/info.ts";
 export * from "./src/account/pending_blocks.ts";
 export * from "./src/account/receive_pending_block.ts";
 export * from "./src/account/keys.ts";
+export * from "./src/account/send.ts";
 
 /**
  * Block
