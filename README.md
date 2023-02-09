@@ -132,6 +132,8 @@ import nanojs from "https://deno.land/x/nanojs/mod.ts";
     }
     ```
 
+<br />
+
 5. ### _Send XNO_
     ```ts
     const sender_private_key = "40C146373BF03EF2D62E067D38A5E6BDE2B511B5C90A99C62B6F7C3D321DDEAC";
@@ -153,13 +155,64 @@ import nanojs from "https://deno.land/x/nanojs/mod.ts";
 
 </details>
 
+
+<details>
+<summary><b>Wallet</b></summary>
+
+1. ### _Create Wallet_
+    ```ts
+    const wallet1 = await create_wallet({ });
+    const wallet2 = await create_wallet({ seed: "5b4b36a524c213a1ef891af31dc5b3071c59c12e36b7fe14f692052b2ea9c74a", till_index: 2 });
+    ```
+
+    ```bash
+    { # wallet1
+        seed: "a4eb1443df8cb67d7b3a869412e8f9c89734962df0711af344a9e7c44afb145e",
+        accounts: [
+            {
+                index: 0,
+                private_key: "E4A3C94BBD0592070661002E253DDAD5B1345801AFC3175DBDCE923CB6FEEAEC",
+                public_key: "C7537142ED0ADE795D6B73008B24A9BD31A09E477A83BCB9B7A6B0B3A7EB5418",
+                address: "nano_3jtmg73gt4pyh7gppwr1jekcmhbjn4h6gyn5qkwuhboipgmypo1rdzbbadxa"
+            }
+        ]
+    }
+
+    { # wallet2
+        seed: "5b4b36a524c213a1ef891af31dc5b3071c59c12e36b7fe14f692052b2ea9c74a",
+        accounts: [
+            {
+                index: 0,
+                private_key: "5C7F0183303876298751DF2482F1DB6DF27C789E1EEE42598B9BAD35B12130D2",
+                public_key: "2BF49EAF6AEF19BCFEBF40A05D7782838957C212CE3AC1B441023A5029DDA4E0",
+                address: "nano_1cznmtqpoursqmzdyi71dour71wbcz337mjtr8t641jtc1nxub915abj3pcm"
+            },
+            {
+                index: 1,
+                private_key: "325A1C6B0AC52350BD4DE2A15965753DB397E278DDE4A377346916A8DB7C8496",
+                public_key: "4ADDA484090D7B14B24EE56B86D7DAB1F8694FE7E18133317C126DBD5A5AD121",
+                address: "nano_1kpxnk41k5du4ks6xsddiudxoehrf79yhre38erqr6mfqof7onb3om5hdqax"
+            },
+            {
+                index: 2,
+                private_key: "5B573170C262F3243305880F385B61A20AA5C66757F55A76E51DCD5B4EF2C66C",
+                public_key: "D8818A1D542976846759F2EE6A5D90D174BA089049B42961EC4FC2663BA92732",
+                address: "nano_3p63jagoacdpijmomwqgfbgs3ndnqa6b1kfn77iyrmy4erxtkbskfws7pujn"
+            }
+        ]
+    }
+    ```
+
+<br />
+
+</details>
+
 <details>
 <summary><b>Block</b></summary>
 
 1. ### _Block Information_
     ```ts
-    const hash =
-        "87434F8041869A01C8F6F263B87972D7BA443A72E0A97D7A3FD0CCC2358FD6F9";
+    const hash = "87434F8041869A01C8F6F263B87972D7BA443A72E0A97D7A3FD0CCC2358FD6F9";
     const info = await nanojs.get_block_info(hash);
 
     console.log(info);
@@ -219,8 +272,7 @@ import nanojs from "https://deno.land/x/nanojs/mod.ts";
 
 1. ### _Work Generate_
     ```ts
-    const hash =
-        "87434F8041869A01C8F6F263B87972D7BA443A72E0A97D7A3FD0CCC2358FD6F9";
+    const hash = "87434F8041869A01C8F6F263B87972D7BA443A72E0A97D7A3FD0CCC2358FD6F9";
     const work = await nanojs.work_generate(hash);
 
     console.log(work);
@@ -255,7 +307,9 @@ import nanojs from "https://deno.land/x/nanojs/mod.ts";
     "1210000000000000000000000000000"
     ```
 
-    2. ### _RAW to XNO_
+<br />
+
+2. ### _RAW to XNO_
     ```ts
     const raw = "1.21";
     const xno = nanojs.raw_to_xno(raw);
@@ -269,7 +323,7 @@ import nanojs from "https://deno.land/x/nanojs/mod.ts";
 
 </details>
 
-<br />
+<br/>
 
 # _**license**_
 
