@@ -1,7 +1,9 @@
 import { RPC_Node_URL } from '../../config/rpc_node_url.ts';
 import { axiod } from '../../deps.ts';
 
-export type Blocks = string[];
+export type Blocks = {
+    blocks: string[] | string;
+};
 
 /**
  * 

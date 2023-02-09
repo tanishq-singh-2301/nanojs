@@ -1,5 +1,5 @@
 import { testing } from '../../deps.ts';
-import { xno_to_raw } from '../../src/conversions/xno_to_raw.ts';
+import { xno_to_raw } from '../../mod.ts';
 
 const { assertEquals } = testing;
 

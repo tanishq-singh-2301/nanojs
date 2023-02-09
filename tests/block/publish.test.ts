@@ -1,7 +1,6 @@
 import { testing, nanocurrency } from '../../deps.ts';
-import { publish_block } from '../../src/block/publish.ts';
+import { publish_block, representatives } from '../../mod.ts';
 import fake_wallet from '../../config/fake_wallet.json' assert { type: "json" };
-import { representatives } from '../../config/representatives.ts';
 
 const { assertEquals } = testing;
 

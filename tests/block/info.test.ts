@@ -1,5 +1,5 @@
 import { testing } from '../../deps.ts';
-import { get_block_info } from '../../src/block/info.ts';
+import { get_block_info } from '../../mod.ts';
 
 const { assertEquals } = testing;
 

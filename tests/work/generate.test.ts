@@ -1,6 +1,6 @@
 import { testing } from '../../deps.ts';
 import fake_wallet from '../../config/fake_wallet.json' assert { type: "json" };
-import { work_generate } from '../../src/work/generate.ts';
+import { work_generate } from '../../mod.ts';
 
 const { assertEquals } = testing;
 
