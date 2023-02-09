@@ -1,23 +1,24 @@
 {
-	"name": "Deno",
- 	"build": {
-		"dockerfile": "Dockerfile"
-	},
-	"customizations": {
-		"vscode": {
-			"settings": { 
-				"deno.enable": true,
-				"deno.lint": true,
-				"editor.defaultFormatter": "denoland.vscode-deno"
-			},
-			"extensions": [
-				"denoland.vscode-deno"
-			]
-		}
-	},
-	"remoteUser": "vscode",
-	"features": {
-		"ghcr.io/devcontainers-contrib/features/bash-command:1": {},
-		"ghcr.io/eliises/devcontainer-features/bash-profile:1": {}
-	}
+    "name": "Deno",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "deno.enable": true,
+                "deno.lint": true,
+                "editor.defaultFormatter": "denoland.vscode-deno"
+            },
+            "extensions": [
+                "denoland.vscode-deno"
+            ]
+        }
+    },
+    "remoteUser": "vscode",
+    "features": {
+        "ghcr.io/devcontainers-contrib/features/bash-command:1": {},
+        "ghcr.io/eliises/devcontainer-features/bash-profile:1": {},
+        "ghcr.io/devcontainers/features/node:1": {}
+    }
 }
