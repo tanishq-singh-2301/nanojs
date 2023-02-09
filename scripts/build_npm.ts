@@ -19,10 +19,10 @@ await build({
         license: "MIT",
         repository: {
             type: "git",
-            url: "git+https://github.com/username/repo.git",
+            url: "git+https://github.com/tanishq-singh-2301/nanojs.git",
         },
         bugs: {
-            url: "https://github.com/username/repo/issues",
+            url: "https://github.com/tanishq-singh-2301/nanojs/issues",
         },
     },
 });
