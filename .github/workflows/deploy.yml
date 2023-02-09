@@ -1,16 +1,11 @@
-name: CI
+name: Deployment
 
 on:
-  push:
-    branches:
-      - main
-
-  pull_request:
-    branches:
-      - main
+  release:
+    types: [published]
 
 jobs:
-  CI:
+  Deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +26,7 @@ jobs:
             ~/.cache/deno
           key: ${{ runner.os }}-deno-${{ hashFiles('**/deps.ts') }}
 
-      - name: Fetch deps
+      - name: Fetch dependencies
         if: ${{ steps.cache-deno.outputs.cache-hit != 'true' }}
         run: |
             deno cache -r deps.ts
@@ -40,5 +35,22 @@ jobs:
       - name: Test
         run: deno test -A
 
-      - name: DNT
-        run: deno run -A scripts/build_npm.ts
+      - name: Deno Node Transformation
+        run: |
+            TAG="${{ github.event.release.tag_name }}"
+
+            if [[ $TAG == v* ]] || [[ $TAG == V* ]]; then
+              TAG=${TAG:1}
+            fi
+
+            deno run -A scripts/build_npm.ts $TAG
+
+      - name: Deno deploy
+        run: echo "It's already done, when release was published"
+
+      - name: NPM Publish
+        run: |
+            cd npm
+            npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

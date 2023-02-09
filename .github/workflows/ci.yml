@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  pull_request
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: actions/cache@v3
+        id: cache-deno
+        with:
+          path: |
+            ~/.deno
+            ~/.cache/deno
+          key: ${{ runner.os }}-deno-${{ hashFiles('**/deps.ts') }}
+
+      - name: Fetch dependencies
+        if: ${{ steps.cache-deno.outputs.cache-hit != 'true' }}
+        run: |
+            deno cache -r deps.ts
+            deno cache -r scripts/build_npm.ts
+
+      - name: Test
+        run: deno test -A
+
+      - name: Deno Node Transformation
+        run: |
+            TAG="${{ github.event.release.tag_name }}"
+
+            if [[ $TAG == v* ]] || [[ $TAG == V* ]]; then
+              TAG=${TAG:1}
+            fi
+
+            deno run -A scripts/build_npm.ts $TAG

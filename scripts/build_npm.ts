@@ -15,7 +15,7 @@ await build({
     package: {
         name: "nanojs",
         version: Deno.args[0],
-        description: "Your package.",
+        description: "NanoJs is a simple, modern and secure library for nanocurrency.",
         license: "MIT",
         repository: {
             type: "git",

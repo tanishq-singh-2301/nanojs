@@ -1,0 +1,12 @@
+{
+    "release": {
+        "head": {
+            "ref": "sample-head-ref"
+        },
+        "base": {
+            "ref": "sample-base-ref"
+        },
+        "ref": "refs/tags/v2.1.41-beta",
+        "tag_name": "v2.1.41-beta"
+    }
+}
