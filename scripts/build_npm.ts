@@ -1,10 +1,10 @@
-import { dnt } from "../deps.ts";
+import { build } from "https://deno.land/x/dnt@0.33.1/mod.ts";
 
-const { build } = dnt;
-
-for await (const entryName of Deno.readDir("/"))
-    if (entryName.name === "npm")
-        await Deno.remove("npm", { recursive: true });
+for await (const entryName of Deno.readDir("./")) {
+    if (entryName.name === "npm") {
+        Deno.removeSync("npm", { recursive: true });
+    }
+}
 
 await build({
     entryPoints: ["./mod.ts"],
@@ -24,7 +24,7 @@ await build({
         bugs: {
             url: "https://github.com/tanishq-singh-2301/nanojs/issues",
         },
-    },
+    }
 });
 
 // post build steps
